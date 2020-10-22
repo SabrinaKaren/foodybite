@@ -29,6 +29,10 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -78,14 +82,14 @@ class _FilterScreenState extends State<FilterScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 24.0),
+                  SizedBox(height: screenHeight * 0.02),
                   Wrap(
                     direction: Axis.horizontal,
                     spacing: 16,
                     runAlignment: WrapAlignment.spaceBetween,
                     children: createCategoryButtons(numberOfButtons: 9),
                   ),
-                  SizedBox(height: 24.0),
+                  SizedBox(height: screenHeight * 0.01),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -93,7 +97,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         'Distance (km)',
                         style: subTitleTextStyle,
                       ),
-                      SizedBox(height: 60.0),
+                      SizedBox(height: screenHeight * 0.08),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
                           inactiveTrackColor: AppColors.purpleShade1,
@@ -138,7 +142,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       )
                     ],
                   ),
-                  SizedBox(height: 24.0),
+                  SizedBox(height: screenHeight * 0.01),
                   RatingsBar(
                     hasSubtitle: false,
                   ),
@@ -179,6 +183,7 @@ class _FilterScreenState extends State<FilterScreen> {
         ],
       ),
     );
+
   }
 
   Widget categoryButton({
